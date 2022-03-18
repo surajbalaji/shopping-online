@@ -1,0 +1,36 @@
+<html>
+
+<?php 
+ 
+ if (isset($_POST['submit'])){
+
+
+$username = $_POST['name'];
+$password = $_POST['password'];
+$repassword = $_POST['repassword'];
+
+
+$connection = mysqli_connect('localhost', 'root', '' , 'cms');
+ 
+ 
+ if($connection){
+
+echo "we are connected";
+ }else{
+      die("connection failed");
+ }
+ 
+
+$query = "INSERT INTO loginform(name, password ,repassword) ";
+$query .= "VALUES ('$username','$password','$repassword')";
+
+$result = mysqli_query($connection,$query);
+
+
+
+
+
+ }
+ 
+ ?>
+ </html>
